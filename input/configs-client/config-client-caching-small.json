@@ -2,7 +2,9 @@
   "@context": [
     "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/config-query-sparql/^4.0.0/components/context.jsonld",
     "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/config-query-sparql-link-traversal/^0.0.0/components/context.jsonld",
-    "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-context-preprocess-set-defaults-traversal-caching-byte-size/^0.0.0/components/context.jsonld"
+    "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/actor-context-preprocess-set-defaults-traversal-caching-byte-size/^0.0.0/components/context.jsonld",
+    "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/runner/^4.0.0/components/context.jsonld"
+
   ],
   "import": [
     "ccqslt:config/config-solid-base.json",
@@ -11,9 +13,7 @@
     "ccqslt:config/extract-links/actors/links-describedby.json",
     "ccqslt:config/extract-links/actors/predicates-solidstorage.json",
     "ccqslt:config/extract-links/actors/quad-pattern-query.json",
-    "ccqslt:config/extract-links/actors/solid-type-index-noinference.json",
-
-    "ccqslt:config/context-preprocess/traversal-caching-bytes.json"
+    "ccqslt:config/extract-links/actors/solid-type-index-noinference.json"
   ],
   "@graph": [
     {

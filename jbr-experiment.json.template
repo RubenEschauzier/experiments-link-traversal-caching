@@ -17,7 +17,7 @@
   "dockerfileServer": "input/dockerfiles/Dockerfile-server",
   "endpointUrl": "http://localhost:3001/sparql",
   "serverPort": 3000,
-  "serverLogLevel": "warn",
+  "serverLogLevel": "info",
   "serverBaseUrl": "http://solidbench-server:3000/",
   "serverResourceConstraints": {
     "@type": "StaticDockerResourceConstraints",
@@ -31,7 +31,7 @@
   "hookSparqlEndpoint": {
     "@id": "urn:jbr:experiment-cache-cardinality-small:hookSparqlEndpoint",
     "@type": "HookSparqlEndpointComunica",
-    "dockerfileClient": "input/dockerfiles/Dockerfile-client-default",
+    "dockerfileClient": "input/dockerfiles/Dockerfile-client-caching-local",
     "resourceConstraints": {
       "@type": "StaticDockerResourceConstraints",
       "cpu_percentage": 100
@@ -40,7 +40,7 @@
     "contextClient": "input/context-client.json",
     "additionalBinds": [],
     "clientPort": 3001,
-    "clientLogLevel": "warn",
+    "clientLogLevel": "info",
     "queryTimeout": 300,
     "maxMemory": 8192
   }
