@@ -2,6 +2,9 @@
   "private": true,
   "name": "experiment-cache-cardinality-small",
   "dependencies": {
+    "@jbr-experiment/solidbench-sequence": "npm:@rubeneschauzier/solidbench-sequence@6.0.1",
+    "@jbr-hook/sparql-endpoint-comunica": "^6.0.0",
+    "jbr": "npm:@rubeneschauzier/jbr@6.0.0",
     "cross-env": "^7.0.3"
   },
   "scripts": {
