@@ -41,7 +41,7 @@
     "additionalBinds": [],
     "clientPort": 3001,
     "clientLogLevel": "warn",
-    "queryTimeout": 300,
+    "queryTimeout": 200,
     "maxMemory": 16384
   }
 }
