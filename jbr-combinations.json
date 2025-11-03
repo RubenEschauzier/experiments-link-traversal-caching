@@ -6,6 +6,6 @@
   "@type": "FullFactorialCombinationProvider",
   "commonGenerated": true,
   "factors": {
-    "size": ["tiny", "small"]
+    "size": ["default"]
   }
 }
