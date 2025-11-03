@@ -42,6 +42,6 @@
     "clientPort": 3001,
     "clientLogLevel": "warn",
     "queryTimeout": 200,
-    "maxMemory": 8192
+    "maxMemory": 16384
   }
 }
