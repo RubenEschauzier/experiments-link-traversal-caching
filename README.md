@@ -19,11 +19,11 @@ As the experiment code is undergoing review and refactoring before merging with 
 
 ```bash
 mkdir node_modules/@rubeneschauzier
-cp -r node_modules/@jbr-experiment/solidbench-sequence node_modules/@rubeneschauzier
-cp -r node_modules/sparql-query-parameter-instantiator node_modules/@rubeneschauzier
-cp -r node_modules/rdf-dataset-fragmenter node_modules/@rubeneschauzier
-cp -r node_modules/ldbc-snb-enhancer node_modules/@rubeneschauzier
-cp -r node_modules/ldbc-snb-validation-generator node_modules/@rubeneschauzier
+cp -r node_modules/@jbr-experiment/solidbench-sequence node_modules/@rubeneschauzier &&
+cp -r node_modules/sparql-query-parameter-instantiator node_modules/@rubeneschauzier &&
+cp -r node_modules/rdf-dataset-fragmenter node_modules/@rubeneschauzier &&
+cp -r node_modules/ldbc-snb-enhancer node_modules/@rubeneschauzier &&
+cp -r node_modules/ldbc-snb-validation-generator node_modules/@rubeneschauzier 
 
 
 ```
