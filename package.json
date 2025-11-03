@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "experiment-cache-large",
+  "name": "experiment-cache-cardinality-small",
   "dependencies": {
     "@jbr-experiment/solidbench-sequence": "npm:@rubeneschauzier/solidbench-sequence@6.0.4",
     "@jbr-hook/sparql-endpoint-comunica": "^6.0.0",
