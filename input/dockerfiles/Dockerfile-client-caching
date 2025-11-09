@@ -1,4 +1,4 @@
-FROM rubeneschauzier/comunica-feature-link-traversal-caching:dev
+FROM rubeneschauzier/comunica-feature-link-traversal-caching:dev2
 
 ARG CONFIG_CLIENT
 ARG QUERY_TIMEOUT
