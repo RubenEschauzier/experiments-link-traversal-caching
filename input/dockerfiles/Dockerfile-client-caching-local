@@ -1,4 +1,4 @@
-FROM comunica/query-sparql-link-traversal-solid:dev
+FROM link-traversal-http-caching/query-sparql-link-traversal-solid:dev
 
 ARG CONFIG_CLIENT
 ARG QUERY_TIMEOUT
