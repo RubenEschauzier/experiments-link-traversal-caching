@@ -28,7 +28,11 @@ cp -r node_modules/ldbc-snb-validation-generator node_modules/@rubeneschauzier
 
 ```
 ## Usage
+Generate the combinations:
 
+```bash
+$ npm run jbr -- generate-combinations
+```
 Generate the dataset and queries:
 
 ```bash
