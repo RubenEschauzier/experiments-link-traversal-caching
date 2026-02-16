@@ -2,10 +2,10 @@
   "@context": [
     "https://linkedsoftwaredependencies.org/bundles/npm/jbr/^6.0.0/components/context.jsonld"
   ],
-  "@id": "urn:jbr:experiment-cache-combinations",
+  "@id": "urn:jbr:experiment-default-combinations",
   "@type": "FullFactorialCombinationProvider",
   "commonGenerated": true,
   "factors": {
-    "size": ["small", "medium", "large"]
+    "bind": ["", "-no-bind"]
   }
 }
