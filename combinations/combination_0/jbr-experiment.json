@@ -40,8 +40,8 @@
     "contextClient": "input/context-client.json",
     "additionalBinds": [],
     "clientPort": 3001,
-    "clientLogLevel": "error",
-    "queryTimeout": 300,
+    "clientLogLevel": "debug",
+    "queryTimeout": 180,
     "maxMemory": 16384
   }
 }

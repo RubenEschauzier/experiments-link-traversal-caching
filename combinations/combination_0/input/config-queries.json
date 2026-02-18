@@ -2,7 +2,7 @@
   "@context": "https://linkedsoftwaredependencies.org/bundles/npm/@rubeneschauzier/sparql-query-parameter-instantiator/^2.0.0/components/context.jsonld",
   "@id": "urn:sparql-query-parameter-instantiator:default",
   "@type": "QuerySequenceInstantiator",
-  "count": 20,
+  "count": 8,
   "seed": 0,
   "sequenceGenerator": {
     "@type": "SequenceGenerator",
