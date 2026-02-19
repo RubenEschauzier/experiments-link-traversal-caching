@@ -31,7 +31,7 @@
   "hookSparqlEndpoint": {
     "@id": "urn:jbr:experiment-cache-cardinality-small:hookSparqlEndpoint",
     "@type": "HookSparqlEndpointComunica",
-    "dockerfileClient": "input/dockerfiles/Dockerfile-client-caching-local",
+    "dockerfileClient": "input/dockerfiles/Dockerfile-client-caching",
     "resourceConstraints": {
       "@type": "StaticDockerResourceConstraints",
       "cpu_percentage": 100
@@ -40,8 +40,8 @@
     "contextClient": "input/context-client.json",
     "additionalBinds": [],
     "clientPort": 3001,
-    "clientLogLevel": "error",
-    "queryTimeout": 300,
+    "clientLogLevel": "warning",
+    "queryTimeout": 180,
     "maxMemory": 16384
   }
 }
