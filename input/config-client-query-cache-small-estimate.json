@@ -28,6 +28,8 @@
           {
             "@id": "urn:comunica:default:optimize-query-operation/actors#set-cache-query-source",
             "@type": "ActorOptimizeQueryOperationSetCacheQuerySource",
+            "mediatorQuerySourceIdentifyHypermedia": { "@id": "urn:comunica:default:query-source-identify-hypermedia/mediators#main" },
+            "actorExtractLinksQuadPatternQuery": { "@id": "urn:comunica:default:extract-links/actors#quad-pattern-query" },
             "cacheSizeNumTriples": 350000,
             "beforeActors": [
               { "@id": "urn:comunica:default:optimize-query-operation/actors#initialize-link-traversal-manager" }
