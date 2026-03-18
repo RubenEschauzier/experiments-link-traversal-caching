@@ -36,7 +36,7 @@
       "@type": "StaticDockerResourceConstraints",
       "cpu_percentage": 100
     },
-    "configClient": "input/configs-client/config-client-query-cache-%FACTOR-size%-estimate-no-bind.json",
+    "configClient": "input/config-client-query-cache-%FACTOR-size%-estimate.json",
     "contextClient": "input/context-client.json",
     "additionalBinds": [],
     "clientPort": 3001,

@@ -6,7 +6,7 @@
     "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/runner/^5.0.0/components/context.jsonld"
   ],
   "import": [
-    "ccqslt:config/config-solid-base-no-identify-no-bind.json",
+    "ccqslt:config/config-solid-base-no-identify.json",
     "ccqslt:config/extract-links/actors/predicates-common.json",
     "ccqslt:config/extract-links/actors/predicates-ldp.json",
     "ccqslt:config/extract-links/actors/links-describedby.json",
@@ -28,7 +28,7 @@
           {
             "@id": "urn:comunica:default:optimize-query-operation/actors#set-cache-query-source",
             "@type": "ActorOptimizeQueryOperationSetCacheQuerySource",
-            "cacheSizeNumTriples": 700000,
+            "cacheSizeNumTriples": 1400000,
             "beforeActors": [
               { "@id": "urn:comunica:default:optimize-query-operation/actors#initialize-link-traversal-manager" }
             ]

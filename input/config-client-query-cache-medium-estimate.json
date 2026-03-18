@@ -6,7 +6,7 @@
     "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/runner/^5.0.0/components/context.jsonld"
   ],
   "import": [
-    "ccqslt:config/config-solid-base-no-identify-no-bind.json",
+    "ccqslt:config/config-solid-base-no-identify.json",
     "ccqslt:config/extract-links/actors/predicates-common.json",
     "ccqslt:config/extract-links/actors/predicates-ldp.json",
     "ccqslt:config/extract-links/actors/links-describedby.json",
