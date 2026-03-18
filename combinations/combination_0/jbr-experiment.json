@@ -4,7 +4,7 @@
     "https://linkedsoftwaredependencies.org/bundles/npm/@rubeneschauzier/solidbench-sequence/^6.0.0/components/context.jsonld",    
     "https://linkedsoftwaredependencies.org/bundles/npm/@jbr-hook/sparql-endpoint-comunica/^6.0.0/components/context.jsonld"
   ],
-  "@id": "urn:jbr:experiment-query-cache-estimate",
+  "@id": "urn:jbr:experiment-query-cache-estimate-no-bind:combination_0",
   "@type": "ExperimentSolidBenchSequence",
   "scale": "0.1",
   "configEnhance": "input/config-enhancer.json",
@@ -36,7 +36,7 @@
       "@type": "StaticDockerResourceConstraints",
       "cpu_percentage": 100
     },
-    "configClient": "input/configs-client/config-client-query-cache-%FACTOR-size%-estimate.json",
+    "configClient": "input/config-client-query-cache-small-estimate.json",
     "contextClient": "input/context-client.json",
     "additionalBinds": [],
     "clientPort": 3001,

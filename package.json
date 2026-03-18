@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "experiment-query-cache-estimate-no-bind",
+  "name": "experiment-query-cache-estimate",
   "dependencies": {
     "@jbr-experiment/solidbench-sequence": "npm:@rubeneschauzier/solidbench-sequence@6.1.6",
     "@jbr-hook/sparql-endpoint-comunica": "^6.0.0",
