@@ -39,6 +39,15 @@ Generate the dataset and queries:
 $ npm run jbr -- prepare
 ```
 
+This experiment runs its queries using the join plan devised by the centralized query engine (QLever). This
+requires an additional step that translates the QLever join plan (as best it can) to a query with hints indicating the join order.
+Comunica will then run the binary joins in the order specified by QLever. Note this disables the use of bind-join.
+For this run:
+
+```bash
+$ node scripts/applyJoinPlanToQueries.js
+```
+
 Run the experiment locally:
 
 ```bash

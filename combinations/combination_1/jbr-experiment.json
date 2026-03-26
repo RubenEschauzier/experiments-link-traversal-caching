@@ -4,7 +4,7 @@
     "https://linkedsoftwaredependencies.org/bundles/npm/@rubeneschauzier/solidbench-sequence/^6.0.0/components/context.jsonld",    
     "https://linkedsoftwaredependencies.org/bundles/npm/@jbr-hook/sparql-endpoint-comunica/^6.0.0/components/context.jsonld"
   ],
-  "@id": "urn:jbr:experiment-cache:combination_1",
+  "@id": "urn:jbr:experiment-cache-qlever-join-plan:combination_1",
   "@type": "ExperimentSolidBenchSequence",
   "scale": "0.1",
   "configEnhance": "input/config-enhancer.json",
@@ -29,9 +29,9 @@
   "queryRunnerEndpointAvailabilityCheckTimeout": 1000,
   "queryRunnerUrlParams": { "context": "{ \"lenient\": true }" },
   "hookSparqlEndpoint": {
-    "@id": "urn:jbr:experiment-cache:combination_1-cardinality-small:hookSparqlEndpoint",
+    "@id": "urn:jbr:experiment-cache-cardinality-small:hookSparqlEndpoint",
     "@type": "HookSparqlEndpointComunica",
-    "dockerfileClient": "input/dockerfiles/Dockerfile-client-caching-local",
+    "dockerfileClient": "input/dockerfiles/Dockerfile-client-caching",
     "resourceConstraints": {
       "@type": "StaticDockerResourceConstraints",
       "cpu_percentage": 100
@@ -40,7 +40,7 @@
     "contextClient": "input/context-client.json",
     "additionalBinds": [],
     "clientPort": 3001,
-    "clientLogLevel": "debug",
+    "clientLogLevel": "warning",
     "queryTimeout": 180,
     "maxMemory": 16384
   }
