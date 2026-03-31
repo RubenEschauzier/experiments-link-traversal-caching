@@ -23,7 +23,7 @@
     "@type": "StaticDockerResourceConstraints",
     "cpu_percentage": 100
   },
-  "queryRunnerReplication": 10,
+  "queryRunnerReplication": 5,
   "queryRunnerWarmupRounds": 0,
   "queryRunnerRequestDelay": 100,
   "queryRunnerEndpointAvailabilityCheckTimeout": 1000,
@@ -31,7 +31,7 @@
   "hookSparqlEndpoint": {
     "@id": "urn:jbr:experiment-cache-cardinality-small:hookSparqlEndpoint",
     "@type": "HookSparqlEndpointComunica",
-    "dockerfileClient": "input/dockerfiles/Dockerfile-client-caching",
+    "dockerfileClient": "input/dockerfiles/Dockerfile-client-default",
     "resourceConstraints": {
       "@type": "StaticDockerResourceConstraints",
       "cpu_percentage": 100
