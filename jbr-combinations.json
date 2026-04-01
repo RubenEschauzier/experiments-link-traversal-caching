@@ -2,10 +2,10 @@
   "@context": [
     "https://linkedsoftwaredependencies.org/bundles/npm/jbr/^6.0.0/components/context.jsonld"
   ],
-  "@id": "urn:jbr:experiment-query-cache-combinations",
+  "@id": "urn:jbr:experiment-query-cache-synthetic-hitrate-combinations",
   "@type": "FullFactorialCombinationProvider",
   "commonGenerated": true,
   "factors": {
-    "size": ["small", "medium", "large"]
+    "miss-rate": ["0", ".1", ".2", ".3", ".4", ".5",".6",".7",".8",".9", "1"]
   }
 }
