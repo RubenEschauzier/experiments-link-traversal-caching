@@ -61,6 +61,13 @@ async function processQueries(metadataPath, queriesPath, outputPath) {
         const scanToPattern = new Map();
         matchTriplePatterns(scanToPattern, entry.joinPlanCentralized, quadPatterns, pathPatterns, astPrefixes);
         ast.where.patterns = reorderScope(ast.where.patterns, entry.joinPlanCentralized, scanToPattern);
+        const dummyHintQuery = `PREFIX comunica: <http://comunica-internal> SELECT * WHERE { comunica:hint comunica:optimizer "None" . }`;
+        const hintAst = parser.parse(dummyHintQuery);
+        const hintPattern = hintAst.where.patterns.find((p) => p.type === 'pattern' && p.subType === 'bgp');
+        if (hintPattern && hintPattern.triples.length > 0) {
+            // Force the generator to output the exact bare word if required by the engine
+            ast.where.patterns.unshift(hintPattern);
+        }
         processedQueries.push(generator.generate(ast));
     }
     fs.writeFileSync(outputPath, processedQueries.join('\n\n'), 'utf-8');

@@ -76,6 +76,15 @@ export async function processQueries(metadataPath: string, queriesPath: string, 
     matchTriplePatterns(scanToPattern, entry.joinPlanCentralized, quadPatterns, pathPatterns, astPrefixes);
 
     ast.where.patterns = reorderScope(ast.where.patterns, entry.joinPlanCentralized, scanToPattern);
+
+    const dummyHintQuery = `PREFIX comunica: <http://comunica-internal> SELECT * WHERE { comunica:hint comunica:optimizer "None" . }`;
+    const hintAst: any = parser.parse(dummyHintQuery);
+    const hintPattern = hintAst.where.patterns.find((p: any) => p.type === 'pattern' && p.subType === 'bgp');
+
+    if (hintPattern && hintPattern.triples.length > 0) {
+      // Force the generator to output the exact bare word if required by the engine
+      ast.where.patterns.unshift(hintPattern);
+    }
     processedQueries.push(generator.generate(ast));
   }
   
