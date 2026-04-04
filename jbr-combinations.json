@@ -6,6 +6,6 @@
   "@type": "FullFactorialCombinationProvider",
   "commonGenerated": true,
   "factors": {
-    "bind": ["", "-no-bind"]
+    "bind": [""]
   }
 }
