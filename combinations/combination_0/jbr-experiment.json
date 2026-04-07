@@ -4,7 +4,7 @@
     "https://linkedsoftwaredependencies.org/bundles/npm/@rubeneschauzier/solidbench-sequence/^6.0.0/components/context.jsonld",    
     "https://linkedsoftwaredependencies.org/bundles/npm/@jbr-hook/sparql-endpoint-comunica/^6.0.0/components/context.jsonld"
   ],
-  "@id": "urn:jbr:experiment-query-cache:combination_0",
+  "@id": "urn:jbr:experiment-query-cache-synthetic-hitrate:combination_0",
   "@type": "ExperimentSolidBenchSequence",
   "scale": "0.1",
   "configEnhance": "input/config-enhancer.json",
@@ -31,16 +31,16 @@
   "hookSparqlEndpoint": {
     "@id": "urn:jbr:experiment-cache-cardinality-small:hookSparqlEndpoint",
     "@type": "HookSparqlEndpointComunica",
-    "dockerfileClient": "input/dockerfiles/Dockerfile-client-caching",
+    "dockerfileClient": "input/dockerfiles/Dockerfile-client-caching-synth-local",
     "resourceConstraints": {
       "@type": "StaticDockerResourceConstraints",
       "cpu_percentage": 100
     },
-    "configClient": "input/configs-client/config-client-query-cache-small.json",
+    "configClient": "input/configs-client/config-client-cache-0.json",
     "contextClient": "input/context-client.json",
     "additionalBinds": [],
     "clientPort": 3001,
-    "clientLogLevel": "warning",
+    "clientLogLevel": "debug",
     "queryTimeout": 180,
     "maxMemory": 16384
   }
