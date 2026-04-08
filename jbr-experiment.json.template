@@ -29,7 +29,7 @@
   "queryRunnerEndpointAvailabilityCheckTimeout": 1000,
   "queryRunnerUrlParams": { "context": "{ \"lenient\": true }" },
   "hookSparqlEndpoint": {
-    "@id": "urn:jbr:experiment-cache-cardinality-small:hookSparqlEndpoint",
+    "@id": "urn:jbr:experiment-query-cache-synthetic-hitrate:hookSparqlEndpoint",
     "@type": "HookSparqlEndpointComunica",
     "dockerfileClient": "input/dockerfiles/Dockerfile-client-caching-synth",
     "resourceConstraints": {

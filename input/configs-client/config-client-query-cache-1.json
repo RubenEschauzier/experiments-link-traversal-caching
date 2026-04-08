@@ -25,7 +25,6 @@
       "@id": "urn:comunica:default:Runner",
       "@type": "Runner",
       "actors": [
-    
         {
           "@id": "urn:comunica:default:optimize-query-operation/actors#set-cache-query-source",
           "@type": "ActorOptimizeQueryOperationSetCacheQuerySource",

@@ -28,7 +28,7 @@
           "@type": "ActorContextPreprocessSetCacheSourceState",
           "mediatorQuerySourceIdentifyHypermedia": { "@id": "urn:comunica:default:query-source-identify-hypermedia/mediators#main" },
           "cacheSizeNumTriples": 2000000,
-          "probabilityCacheMiss": 1,
+          "probabilityCacheMiss": 1.0,
           "actorExtractLinksQuadPatternQuery": { "@id": "urn:comunica:default:extract-links/actors#quad-pattern-query" }
         }
       ]
