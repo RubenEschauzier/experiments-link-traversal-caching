@@ -14,6 +14,8 @@
     "ccqslt:config/extract-links/actors/predicates-solidstorage.json",
     "ccqslt:config/extract-links/actors/quad-pattern-query.json",
     "ccqslt:config/extract-links/actors/solid-type-index-noinference.json",
+    
+    "ccqslt:config/http/actors-delay.json",
 
     "ccqslt:config/query-source-dereference-link/actors-cache-source.json"
   ],
@@ -25,6 +27,8 @@
             {
                 "@id": "urn:comunica:default:context-preprocess/actors#set-cache-source-state",
                 "@type": "ActorContextPreprocessSetCacheSourceState",
+                "actorExtractLinksQuadPatternQuery": { "@id": "urn:comunica:default:extract-links/actors#quad-pattern-query" },
+                "mediatorQuerySourceIdentifyHypermedia": { "@id": "urn:comunica:default:query-source-identify-hypermedia/mediators#main" },
                 "cacheSizeNumTriples": 1400000
             },
             {
