@@ -17,7 +17,9 @@
     "ccqslt:config/context-preprocess/actors-count-quads-view.json",
     "ccqslt:config/query-source-identify/actors-query-cache-estimate-cardinality.json",
     "ccqslt:config/query-source-dereference-link/cache-query-source.json",
-    "ccqslt:config/rdf-join-entries-sort/actors-cache-cardinality.json"
+    "ccqslt:config/rdf-join-entries-sort/actors-cache-cardinality.json",
+    
+    "ccqslt:config/http/actors-delay.json"
 
   ],
   "@graph": [
