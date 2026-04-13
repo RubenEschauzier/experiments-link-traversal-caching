@@ -6,7 +6,7 @@
     "https://linkedsoftwaredependencies.org/bundles/npm/@comunica/runner/^5.0.0/components/context.jsonld"
   ],
   "import": [
-    "ccqslt:config/config-solid-base-no-identify-no-bind.json",
+    "ccqslt:config/config-solid-base-no-identify.json",
     "ccqslt:config/extract-links/actors/predicates-common.json",
     "ccqslt:config/extract-links/actors/predicates-ldp.json",
     "ccqslt:config/extract-links/actors/links-describedby.json",
@@ -16,25 +16,28 @@
 
     "ccqslt:config/context-preprocess/actors-count-quads-view.json",
     "ccqslt:config/query-source-identify/actors-query-cache-estimate-cardinality.json",
-    "ccqslt:config/context-preprocess/actor-set-cache-manager.json",
     "ccqslt:config/query-source-dereference-link/cache-query-source.json",
-    "ccqslt:config/rdf-join-entries-sort/actors-cache-cardinality.json"
-
+    "ccqslt:config/rdf-join-entries-sort/actors-cache-cardinality.json",
+    
+    "ccqslt:config/http/actors-delay.json"
   ],
   "@graph": [
     {
-        "@id": "urn:comunica:default:Runner",
-        "@type": "Runner",
-        "actors": [
-          {
-            "@id": "urn:comunica:default:optimize-query-operation/actors#set-cache-query-source",
-            "@type": "ActorOptimizeQueryOperationSetCacheQuerySource",
-            "cacheSizeNumTriples": 1400000,
-            "beforeActors": [
-              { "@id": "urn:comunica:default:optimize-query-operation/actors#initialize-link-traversal-manager" }
-            ]
-          }
-        ]
+      "@id": "urn:comunica:default:Runner",
+      "@type": "Runner",
+      "actors": [
+        {
+          "@id": "urn:comunica:default:optimize-query-operation/actors#set-cache-query-source",
+          "@type": "ActorOptimizeQueryOperationSetCacheQuerySource",
+          "cacheSizeNumTriples": 2000000,
+          "mediatorQuerySourceIdentifyHypermedia": { "@id": "urn:comunica:default:query-source-identify-hypermedia/mediators#main" },
+          "actorExtractLinksQuadPatternQuery": { "@id": "urn:comunica:default:extract-links/actors#quad-pattern-query" },
+          "probabilityCacheMiss": 0.7,
+          "beforeActors": [
+            { "@id": "urn:comunica:default:optimize-query-operation/actors#initialize-link-traversal-manager" }
+          ]
+        }
+      ]
     }
   ]
 }
