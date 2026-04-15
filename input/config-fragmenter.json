@@ -549,6 +549,20 @@
             "object"
           ]
         }
+      },
+      {
+        "@type": "QuadSinkFiltered",
+        "filter": {
+          "@type": "QuadMatcherPredicate",
+          "predicateRegex": "vocabulary/creationDate$"
+        },
+        "sink": {
+          "@type": "QuadSinkCsv",
+          "file": "out-fragments/parameters-timestamps.csv",
+          "columns": [
+            "object"
+          ]
+        }
       }
     ]
   }

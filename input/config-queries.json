@@ -2,7 +2,7 @@
   "@context": "https://linkedsoftwaredependencies.org/bundles/npm/@rubeneschauzier/sparql-query-parameter-instantiator/^2.0.0/components/context.jsonld",
   "@id": "urn:sparql-query-parameter-instantiator:default",
   "@type": "QuerySequenceInstantiator",
-  "count": 6,
+  "count": 8,
   "seed": 0,
   "sequenceGenerator": {
     "@type": "SequenceGenerator",
@@ -33,7 +33,7 @@
           "originalString": "http://www.ldbc.eu/ldbc_socialnet/1.0/data/pers$1",
           "fragmentedRegex": "^http://solidbench-server:3000/pods/([0-9]*)/profile/card#me$",
           "fragmentedString": "http://solidbench-server:3000/pods/$1/profile/card#me"
-        },      
+        },
         {
           "@type": "TermTransformerBiDirectional",
           "originalRegex": "^http://www.ldbc.eu",
@@ -138,12 +138,13 @@
         {
           "@type": "VariableTemplateTimestamp",
           "name": "timestamp",
+          "stripDatatype": true,
           "substitutionProvider": {
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps",
             "@type": "SubstitutionProviderCsv",
-            "csvFilePath": "out-snb/substitution_parameters/interactive_9_param.txt",
-            "separator": "|",
-            "columnName": "maxDate"
+            "csvFilePath": "out-fragments/parameters-timestamps.csv",
+            "columnName": "object",
+            "uniqueValues": true
           }
         }
       ],
@@ -175,7 +176,7 @@
       },
       "outputVariableTypeMap": {
         "message": "message"
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -203,7 +204,8 @@
         },
         {
           "@type": "VariableTemplateTimestamp",
-          "name": "maxDate",
+          "name": "timestamp",
+          "stripDatatype": true,
           "substitutionProvider": {
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps"
           }
@@ -222,7 +224,7 @@
         "person": "person"
       },
       "outputVariableTypeMap": {
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -249,7 +251,8 @@
         },
         {
           "@type": "VariableTemplateTimestamp",
-          "name": "maxDate",
+          "stripDatatype": true,
+          "name": "timestamp",
           "substitutionProvider": {
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps"
           }
@@ -268,7 +271,7 @@
         "person": "person"
       },
       "outputVariableTypeMap": {
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -488,7 +491,8 @@
         },
         {
           "@type": "VariableTemplateTimestamp",
-          "name": "maxDate",
+          "name": "timestamp",
+          "stripDatatype": true,
           "substitutionProvider": {
             "@id": "urn:sparql-query-parameter-instantiator:substitutionProviderTimestamps"
           }
@@ -519,7 +523,7 @@
       },
       "outputVariableTypeMap": {
         "message": "message"
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 5,
       "maxLogits": 5,
@@ -569,7 +573,7 @@
         "person": "person"
       },
       "outputVariableTypeMap": {
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 3,
       "maxLogits": 5,
@@ -642,7 +646,7 @@
       "outputVariableTypeMap": {
         "originalPost": "message",
         "creator": "person"
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 5,
@@ -712,7 +716,7 @@
       },
       "outputVariableTypeMap": {
         "person": "person"
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 5,
@@ -759,7 +763,7 @@
         "message": "message"
       },
       "outputVariableTypeMap": {
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 5,
@@ -852,7 +856,7 @@
       },
       "outputVariableTypeMap": {
         "creator": "person"
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 10,
@@ -926,7 +930,7 @@
       },
       "outputVariableTypeMap": {
         "moderator": "person"
-      },      
+      },
       "minRefinementLength": 2,
       "maxRefinementLength": 4,
       "maxLogits": 10,
