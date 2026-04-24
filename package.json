@@ -4,11 +4,15 @@
   "dependencies": {
     "@jbr-experiment/solidbench-sequence": "npm:@rubeneschauzier/solidbench-sequence@6.2.4",
     "@jbr-hook/sparql-endpoint-comunica": "^6.0.0",
+    "cross-env": "^7.0.3",
     "jbr": "^6.0.0",
-    "cross-env": "^7.0.3"
+    "typescript": "^5.5.3"
   },
   "scripts": {
     "jbr": "cross-env NODE_OPTIONS=--max-old-space-size=8192 jbr",
     "validate": "jbr validate"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0"
   }
 }

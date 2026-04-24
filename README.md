@@ -1,6 +1,8 @@
-# My Experiment
+# Random Initialization of Query Sequence Logical Sessions
 
 This experiment was created with [jbr](https://github.com/rubensworks/jbr.js).
+In this experiment we replace the instantiation values of queries belonging to new logical sessions with random values to investigate the differences
+in cache performance of logical sessions with similarity-based initialization and random initialization.
 
 ## Requirements
 
@@ -37,6 +39,12 @@ Generate the dataset and queries:
 
 ```bash
 $ npm run jbr -- prepare
+```
+
+Now run the script to transform the sequences to use random instatiation values for queries belonging to new logical sessions.
+```bash
+$ npx tsc
+$ node scripts/transformSequence.js --json "scripts/regexToCsv.json" --sequences "generated/out-queries"
 ```
 
 Run the experiment locally:

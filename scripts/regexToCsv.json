@@ -1,0 +1,5 @@
+{
+  "http:\\/\\/solidbench-server:3000\\/pods\\/\\d+\\/comments[^\\s>]*": ["./generated/out-fragments/parameters-comments.csv"],
+  "http:\\/\\/solidbench-server:3000\\/pods\\/\\d+\\/profile[^\\s>]*": ["./generated/out-fragments/parameters-persons.csv"],
+  "http:\\/\\/solidbench-server:3000\\/pods\\/\\d+\\/posts[^\\s>]*": ["./generated/out-fragments/parameters-posts.csv"]
+}
