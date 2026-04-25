@@ -35,10 +35,6 @@ var __importStar = (this && this.__importStar) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
-/**
- * Reads a simple CSV file and extracts values as an array of strings.
- * Assumes a single column or comma-separated values on a single line.
- */
 function loadCsvValues(csvPath) {
     if (!fs.existsSync(csvPath)) {
         console.warn(`Warning: CSV file not found at ${csvPath}`);
@@ -50,9 +46,6 @@ function loadCsvValues(csvPath) {
         .map((val) => val.trim())
         .filter((val) => val.length > 0);
 }
-/**
- * Loads the JSON configuration and parses the associated CSV files.
- */
 function initializeMappings(jsonFilePath) {
     const rawData = fs.readFileSync(jsonFilePath, 'utf-8');
     const config = JSON.parse(rawData);
@@ -73,9 +66,6 @@ function initializeMappings(jsonFilePath) {
     }
     return loadedPatterns;
 }
-/**
- * Scans a directory and pairs .metadata.json and .sparql files.
- */
 function getSequencePairs(directory) {
     const files = fs.readdirSync(directory);
     const pairMap = new Map();
@@ -92,7 +82,7 @@ function getSequencePairs(directory) {
             isSparql = true;
         }
         else {
-            continue; // Skip irrelevant files
+            continue;
         }
         // Initialize the pair if it does not exist
         if (!pairMap.has(baseName)) {
@@ -110,16 +100,10 @@ function getSequencePairs(directory) {
     // Filter and return only complete pairs
     return Array.from(pairMap.values()).filter(pair => pair.metadataFile && pair.sparqlFile);
 }
-/**
- * Selects a random replacement from the available options.
- */
 function getRandomReplacement(replacements) {
     const randomIndex = Math.floor(Math.random() * replacements.length);
     return replacements[randomIndex];
 }
-/**
- * Processes all sequence files in the target directory using the loaded patterns.
- */
 function processSequences(jsonFilePath, inputDirectory, outputDirectory) {
     const patterns = initializeMappings(jsonFilePath);
     if (!fs.existsSync(outputDirectory)) {
@@ -140,16 +124,40 @@ function processSequences(jsonFilePath, inputDirectory, outputDirectory) {
             if (currentSessionId !== activeSessionId) {
                 if (!seenSessions.has(currentSessionId)) {
                     seenSessions.add(currentSessionId);
+                    const sessionRolls = new Map();
                     let randomInitQuery = sparqlContent[i];
                     for (const { pattern, replacements } of patterns) {
                         randomInitQuery = randomInitQuery.replace(pattern, (matchedString) => {
-                            return getRandomReplacement(replacements);
+                            if (!sessionRolls.has(matchedString)) {
+                                sessionRolls.set(matchedString, getRandomReplacement(replacements));
+                            }
+                            return sessionRolls.get(matchedString);
                         });
                     }
                     if (sparqlContent[i] === randomInitQuery) {
                         const snippet = sparqlContent[i].substring(0, 50).replace(/\n/g, ' ');
                         console.error(`Failed to transform query snippet: ${snippet}...`);
                         throw new Error(`No regex matches found for initialization in ${pair.baseName}`);
+                    }
+                    // If the next query is a refinement of the replaced query, we apply the exact
+                    // same replacement to queries in the refinement sequence
+                    let lookAheadIdx = i + 1;
+                    while (lookAheadIdx < metadataElements.length) {
+                        const nextElement = metadataElements[lookAheadIdx];
+                        // If the next query has no refinementMetadata patternIds 
+                        // then the refinementSequence is over.
+                        if (!nextElement.refinementMetadata || !nextElement.refinementMetadata.patternIds) {
+                            break;
+                        }
+                        let refinementQuery = sparqlContent[lookAheadIdx];
+                        // Apply the exact same regex patterns to the refinement query
+                        for (const { pattern } of patterns) {
+                            refinementQuery = refinementQuery.replace(pattern, (matchedString) => {
+                                return sessionRolls.get(matchedString) || matchedString;
+                            });
+                        }
+                        sparqlContent[lookAheadIdx] = refinementQuery;
+                        lookAheadIdx++;
                     }
                     sparqlContent[i] = randomInitQuery;
                 }
@@ -160,11 +168,9 @@ function processSequences(jsonFilePath, inputDirectory, outputDirectory) {
         const newBaseName = `${pair.baseName}_random_init`;
         const sparqlOutputPath = path.join(outputDirectory, `${newBaseName}.sparql`);
         const metadataOutputPath = path.join(outputDirectory, `${newBaseName}.metadata.json`);
-        // Write new files
         fs.writeFileSync(sparqlOutputPath, sparqlContent.join("\n\n"), 'utf-8');
         fs.writeFileSync(metadataOutputPath, metadataRaw, 'utf-8');
         console.log(`Saved: ${newBaseName}`);
-        // --- DELETE ORIGINAL FILES ---
         try {
             fs.unlinkSync(pair.metadataFile);
             fs.unlinkSync(pair.sparqlFile);
@@ -175,7 +181,6 @@ function processSequences(jsonFilePath, inputDirectory, outputDirectory) {
         }
     }
 }
-// CLI Execution Handlers
 const args = process.argv.slice(2);
 function displayHelp() {
     console.log(`
@@ -187,12 +192,10 @@ Options:
   --help     Display this help message
     `);
 }
-// Display help if requested
 if (args.includes('--help') || args.includes('-h')) {
     displayHelp();
     process.exit(0);
 }
-// Parse named arguments
 let jsonFile;
 let inputDir;
 for (let i = 0; i < args.length; i++) {
@@ -201,7 +204,6 @@ for (let i = 0; i < args.length; i++) {
     if (args[i] === '--sequences')
         inputDir = args[++i];
 }
-// Validate required arguments
 if (!jsonFile || !inputDir) {
     console.error("Error: Missing required arguments.");
     displayHelp();
